@@ -1,0 +1,30 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+@font-face {
+  font-family: 'Karla' ;
+  src: url('../fonts/Karla-VariableFont_wght.ttf') format('truetype');
+}
+
+:root {
+  --Green-200-lighter: hsl(148, 38%, 91%);
+  --Green-600-medium: hsl(169, 82%, 27%);
+  --Grey-500-medium: hsl(186, 15%, 59%);
+  --Grey-900-darker: hsl(187, 24%, 22%);
+  --Red: hsl(0, 66%, 54%);
+  --White: hsl(0, 0%, 100%);
+
+  --karla: 'Karla', sans-serif;
+  --text-sm: 500 1.1rem/120% var(--karla);
+  --text-md: 500 1.3rem/120% var(--karla);
+  --text-lg: 700 2rem/120% var(--karla);
+}
