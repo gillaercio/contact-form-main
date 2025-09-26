@@ -38,6 +38,12 @@ body {
   display: grid;
 }
 
+input.input-error,
+textarea.input-error {
+  border: 1px solid var(--Red);
+  /* background-color: #ffe6e6; */
+}
+
 .label {
   margin-bottom: 0.8rem;
   font: var(--text);
@@ -58,11 +64,19 @@ body {
   border-radius: 0.6rem;
 }
 
+.form-input:focus,
+#form-message:focus,
+#form-button {
+  outline: none;
+  border: 1px solid var(--Green-600-medium);
+}
+
 .form-input:hover,
 /* .form__type:hover div, */
 .form__type > div:hover,
 #form-message:hover {
-  border-color: var(--Grey-900-darker);
+  /* border-color: var(--Grey-900-darker); */
+  border: 1px solid var(--Grey-900-darker);
 }
 
 .form__type {
@@ -105,7 +119,7 @@ input[type="radio"] + label::before {
   /* top: 0.1rem; */
   width: 2rem;
   height: 2rem;
-  border: 2px solid var(--Grey-500-medium);
+  border: 1px solid var(--Grey-500-medium);
   border-radius: 50%;
   background-color: transparent;
   transition: all 0.2s ease-in-out;
@@ -144,7 +158,7 @@ input[type="checkbox"] + label::before {
   top: 0.2rem;
   width: 2rem;
   height: 2rem;
-  border: 2px solid var(--Grey-500-medium);
+  border: 1px solid var(--Grey-500-medium);
   border-radius: 0.4rem;
   background-color: transparent;
   transition: all 0.2s ease-in-out;
@@ -196,5 +210,19 @@ input[type="checkbox"]:checked + label::after {
 }
 
 #error-checkbox {
-  margin-top: -1rem;
+  margin-top: -2.5rem;
+}
+
+.success-message {
+  background-color: var(--Grey-900-darker);
+  color: var(--White);
+  padding: 1.5rem 2rem;
+  border-radius: 0.6rem;
+  margin-bottom: 2rem;
+  font: var(--text-md);
+}
+
+.success-message strong {
+  display: block;
+  margin-bottom: 0.5rem;
 }
