@@ -1,10 +1,13 @@
-const form = document.querySelector("form-content");
+const form = document.querySelector(".form-content");
 const firstName = document.getElementById("form-first-name");
 const lastName = document.getElementById("form-last-name");
 const email = document.getElementById("form-email");
+const message = document.getElementById("form-message");
 const generalEnquiry = document.getElementById("general-enquiry");
 const supportRequest = document.getElementById("support-request");
-const typeErrorMsg = document.querySelector('fieldset.form__type + .error-message');
+const checkbox = document.getElementById("form-checkbox");
+
+// const typeErrorMsg = document.querySelector('fieldset.form__type + .error-message');
 
 function sendButton(event) {
   event.preventDefault()
@@ -47,14 +50,13 @@ function sendButton(event) {
     hasError = true;
   }
 
-  const message = document.getElementById("form-message");
+  // const message = document.getElementById("form-message");
   if (message.value.trim() === "") {
     document.getElementById("error-message").textContent = required;
     message.classList.add("input-error");
     hasError = true;
   }
 
-  const checkbox = document.getElementById("form-checkbox");
   if (!checkbox.checked) {
     document.getElementById("error-checkbox").textContent = errorCheckbox;
     checkbox.classList.add("input-error");
@@ -73,3 +75,25 @@ function sendButton(event) {
     document.querySelector("form").reset();
   }
 }
+
+[firstName, lastName, email, message].forEach(field => {
+  field.addEventListener('input', () => {
+    if (field.value.trim() !== "") {
+      field.classList.remove("input-error");
+      document.getElementById(`error-${field.id.replace("form-", "")}`).textContent = "";
+    }
+  });
+});
+
+checkbox.addEventListener('change', () => {
+  if (checkbox.checked) {
+    checkbox.classList.remove("input-error");
+    document.getElementById("error-checkbox").textContent = "";
+  }
+});
+
+[generalEnquiry, supportRequest].forEach(radio => {
+  radio.addEventListener('change', () => {
+    document.getElementById("error-query").textContent = "";
+  });
+});

@@ -40,8 +40,15 @@ body {
 
 input.input-error,
 textarea.input-error {
-  border: 1px solid var(--Red);
+  border: 1.5px solid var(--Red);
   /* background-color: #ffe6e6; */
+}
+
+input.input-error:focus,
+textarea.input-error:focus {
+  border: 1.5px solid var(--Red);
+  box-shadow: none;
+  outline: none;
 }
 
 .label {
@@ -60,23 +67,23 @@ textarea.input-error {
 
 .form-input {
   padding: 0.8rem;
-  border: 1px solid var(--Grey-500-medium);
+  border: 1.5px solid var(--Grey-500-medium);
   border-radius: 0.6rem;
 }
 
 .form-input:focus,
-#form-message:focus,
-#form-button {
+#form-message:focus {
+/* #form-button { */
   outline: none;
-  border: 1px solid var(--Green-600-medium);
+  border: 1.5px solid var(--Green-600-medium);
 }
 
 .form-input:hover,
 /* .form__type:hover div, */
-.form__type > div:hover,
+/* .form__type > div:hover, */
 #form-message:hover {
   /* border-color: var(--Grey-900-darker); */
-  border: 1px solid var(--Grey-900-darker);
+  border: 1.5px solid var(--Grey-900-darker);
 }
 
 .form__type {
@@ -90,7 +97,7 @@ textarea.input-error {
   gap: 1rem;
   align-items: center;
   padding: 1rem;
-  border: 1px solid var(--Grey-500-medium);
+  border: 1.5px solid var(--Grey-500-medium);
   font: var(--text-md);
   border-radius: 0.6rem;
 }
@@ -119,7 +126,7 @@ input[type="radio"] + label::before {
   /* top: 0.1rem; */
   width: 2rem;
   height: 2rem;
-  border: 1px solid var(--Grey-500-medium);
+  border: 1.5px solid var(--Grey-500-medium);
   border-radius: 50%;
   background-color: transparent;
   transition: all 0.2s ease-in-out;
@@ -134,8 +141,12 @@ input[type="radio"]:checked + label::before {
 }
 
 #form-message {
-  border: 1px solid var(--Grey-500-medium);
+  border: 1.5px solid var(--Grey-500-medium);
   border-radius: 0.6rem;
+}
+
+#form-message.input-error {
+  border: 1.5px solid var(--Red);
 }
 
 .form__checkbox {
@@ -158,7 +169,7 @@ input[type="checkbox"] + label::before {
   top: 0.2rem;
   width: 2rem;
   height: 2rem;
-  border: 1px solid var(--Grey-500-medium);
+  border: 1.5px solid var(--Grey-500-medium);
   border-radius: 0.4rem;
   background-color: transparent;
   transition: all 0.2s ease-in-out;
