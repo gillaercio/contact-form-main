@@ -25,6 +25,7 @@ html {
 
   --karla: 'Karla', sans-serif;
   --text-sm: 500 1.1rem/120% var(--karla);
+  --text-success: 500 1.3rem/120% var(--karla);
   --text: 500 1.4rem/120% var(--karla);
   --text-md: 500 1.6rem/120% var(--karla);
   --text-lg: 700 2rem/120% var(--karla);

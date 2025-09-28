@@ -7,8 +7,6 @@ const generalEnquiry = document.getElementById("general-enquiry");
 const supportRequest = document.getElementById("support-request");
 const checkbox = document.getElementById("form-checkbox");
 
-// const typeErrorMsg = document.querySelector('fieldset.form__type + .error-message');
-
 function sendButton(event) {
   event.preventDefault()
 
@@ -50,7 +48,6 @@ function sendButton(event) {
     hasError = true;
   }
 
-  // const message = document.getElementById("form-message");
   if (message.value.trim() === "") {
     document.getElementById("error-message").textContent = required;
     message.classList.add("input-error");
@@ -71,8 +68,13 @@ function sendButton(event) {
       <p>Thanks for completing the form. We'll be in touch soon!</p>
     `;
 
-    document.getElementById("content").prepend(successMsg);
-    document.querySelector("form").reset();
+    document.body.appendChild(successMsg);
+
+    setTimeout(() => {
+      successMsg.remove();
+    }, 4000);
+
+    form.reset();
   }
 }
 
