@@ -71,6 +71,7 @@ textarea.input-error:focus {
 }
 
 .form-input:focus,
+#form-checkbox:focus,
 #form-message:focus {
   outline: none;
   border: 1.5px solid var(--Green-600-medium);
@@ -102,9 +103,16 @@ textarea.input-error:focus {
   background-color: var(--Green-200-lighter);
 }
 
-input[type="radio"],
+/* input[type="radio"],
 input[type="checkbox"] {
   display: none;
+} */
+
+input[type="radio"],
+input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
 }
 
 input[type="radio"] + label {
@@ -134,7 +142,7 @@ input[type="radio"]:checked + label::before {
 }
 
 #form-message {
-  padding: 0.5rem;
+  padding: 1rem;
   border: 1.5px solid var(--Grey-500-medium);
   border-radius: 0.6rem;
 }
@@ -147,7 +155,6 @@ input[type="radio"]:checked + label::before {
   display: flex;
   gap: 1rem;
   align-items: center;
-  /* border: 1px solid red; */
 }
 
 input[type="checkbox"] + label {
@@ -168,6 +175,11 @@ input[type="checkbox"] + label::before {
   border-radius: 0.4rem;
   background-color: transparent;
   transition: all 0.2s ease-in-out;
+}
+
+input[type="checkbox"]:focus + label::before {
+  border: 1.5px solid var(--Green-600-medium);
+  box-shadow: 0 0 0 2px var(--Green-200-lighter);
 }
 
 input[type="checkbox"]:checked + label::before {
@@ -198,7 +210,13 @@ input[type="checkbox"]:checked + label::after {
 }
 
 #form-button:hover {
+  outline: none;
   background-color: var(--Grey-900-darker);
+}
+
+#form-button:focus {
+  border: 1px solid var(--Green-900-darker);
+  box-shadow: 0 0 0 3px var(--Green-200-lighter);
 }
 
 .form-input,
@@ -254,5 +272,26 @@ input[type="checkbox"]:checked + label::after {
   to {
     opacity: 0;
     transform: translate(-50%, 0%);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  #content {
+    display: flex;
+    max-width: 768px;
+    width: 100%;
+  }
+
+  #form-contents {
+    width: 768px;
+    /* border: 1px solid red; */
+  }
+
+  .inline-div:nth-child(1),
+  .form__type {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* border: 1px solid blue; */
   }
 }
